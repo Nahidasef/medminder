@@ -17,7 +17,9 @@ class _NavbarState extends State<Navbar> {
           currentPageIndex = index;
         });
       },
-      //indicatorColor: Colors.amber,
+      indicatorColor: Theme.of(context).colorScheme.primaryContainer,
+      //surfaceTintColor: Theme.of(context).colorScheme.surfaceTint,
+      //backgroundColor: Theme.of(context).colorScheme.background,
       selectedIndex: currentPageIndex,
       destinations: const [
         NavigationDestination(icon: Icon(Icons.history), label: "History"),
