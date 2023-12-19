@@ -17,9 +17,16 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.greenAccent.shade400,
+          brightness: Brightness.light,
         ),
       ),
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.greenAccent.shade400,
+          brightness: Brightness.dark,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       home: const Home(),
     );
