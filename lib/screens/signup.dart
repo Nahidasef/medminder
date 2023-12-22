@@ -4,7 +4,6 @@ import 'package:medminder/screens/signin.dart';
 
 import '../widgets/custom.dart';
 
-
 class Signup extends StatefulWidget {
   const Signup({super.key});
 
@@ -50,7 +49,7 @@ class _Signup extends State<Signup> {
                         style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.w900,
-                          color:  Colors.black,
+                          color: Colors.black,
                         ),
                       ),
                       const SizedBox(
@@ -161,7 +160,7 @@ class _Signup extends State<Signup> {
                                 agreePersonalData = value!;
                               });
                             },
-                            activeColor:  Colors.black,
+                            activeColor: Colors.black,
                           ),
                           const Text(
                             'I agree to the processing of ',
@@ -173,7 +172,7 @@ class _Signup extends State<Signup> {
                             'Personal data',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color:  Colors.black,
+                              color: Colors.black,
                             ),
                           ),
                         ],
@@ -188,11 +187,13 @@ class _Signup extends State<Signup> {
                           onPressed: () {
                             if (_formSignupKey.currentState!.validate() &&
                                 agreePersonalData) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Processing Data'),
-                                ),
-                              );
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   const SnackBar(
+                              //     content: Text('Processing Data'),
+                              //   ),
+                              // );
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, '/home', (route) => false);
                             } else if (!agreePersonalData) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -265,7 +266,7 @@ class _Signup extends State<Signup> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (e) => const Signin(),
@@ -276,7 +277,7 @@ class _Signup extends State<Signup> {
                               'Sign in',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color:  Colors.black,
+                                color: Colors.black,
                               ),
                             ),
                           ),
