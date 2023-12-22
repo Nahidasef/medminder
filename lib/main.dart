@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medminder/screens/firstscreen.dart';
+import 'pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,15 +13,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'MedMinder',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.greenAccent.shade400,
+          brightness: Brightness.light,
+        ),
       ),
-      home: Firstscreen(),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.greenAccent.shade400,
+          brightness: Brightness.dark,
+        ),
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Firstscreen(),
+        '/home': (context) => const Home(),
+      },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
-
-

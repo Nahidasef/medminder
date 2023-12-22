@@ -127,7 +127,6 @@ class _Signin extends State<Signin> {
                                     rememberPassword = value!;
                                   });
                                 },
-
                               ),
                               const Text(
                                 'Remember me',
@@ -142,7 +141,7 @@ class _Signin extends State<Signin> {
                               'Forget password',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color:  Colors.blue,
+                                color: Colors.blue,
                               ),
                             ),
                           ),
@@ -157,11 +156,13 @@ class _Signin extends State<Signin> {
                           onPressed: () {
                             if (_formSignInKey.currentState!.validate() &&
                                 rememberPassword) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Processing Data'),
-                                ),
-                              );
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   const SnackBar(
+                              //     content: Text('Processing Data'),
+                              //   ),
+                              // );
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, '/home', (route) => false);
                             } else if (!rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -170,7 +171,7 @@ class _Signin extends State<Signin> {
                               );
                             }
                           },
-                          child: const Text('Sign up'),
+                          child: const Text('Sign in'),
                         ),
                       ),
                       const SizedBox(
@@ -232,7 +233,7 @@ class _Signin extends State<Signin> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (e) => const Signup(),
@@ -243,7 +244,7 @@ class _Signin extends State<Signin> {
                               'Sign up',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color:  Colors.black,
+                                color: Colors.black,
                               ),
                             ),
                           ),
